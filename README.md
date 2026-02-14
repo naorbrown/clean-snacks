@@ -8,13 +8,13 @@ Simple, real-food snack recipes for every occasion. Replace packaged junk with s
 
 Clean Snacks is a recipe site organized by **when** you snack — movie night, gym, work, road trips, and more. Every recipe uses real, whole-food ingredients (typically 5 or fewer), with no refined sugar, no seed oils, and no artificial anything.
 
-### 15 Categories
+### 16 Categories
 
 | Occasion-Based | Demographic | Type |
 |---|---|---|
 | Movie Night | Baby & Toddler | Candy & Sweets |
 | Gym & Training | Kids (5-12) | Drinks & Smoothies |
-| Work & Study | Teens | |
+| Work & Study | Teens | Baked Treats |
 | Road Trip & Commute | Men's Fuel | |
 | Game Day & Social | Women's Wellness | |
 | Morning & Daily | Elderly & Gentle | |
