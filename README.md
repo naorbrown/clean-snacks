@@ -1,6 +1,6 @@
 # Clean Snacks
 
-Simple, real-food snack recipes for every occasion. Replace packaged junk with snacks you make yourself using whole ingredients.
+Skip the label. Make the snack. — 175+ whole-food snack recipes using 5 ingredients or fewer, organized by occasion.
 
 **Live site:** [naorbrown.github.io/the-clean-snacks](https://naorbrown.github.io/the-clean-snacks)
 
@@ -101,10 +101,10 @@ tests/
 
 ## Principles
 
-- **Know every ingredient** — if you can't pronounce it, skip it
-- **5 ingredients or fewer** — simple beats complex
-- **No refined sugar** — dates, honey, and maple syrup instead
-- **Fuel, not filler** — mineral-rich, nutrient-dense, real food
+- **Every ingredient earns its place** — if you can't find it at a grocery store, it doesn't belong
+- **Five ingredients or fewer** — simple recipes get made, complicated ones get bookmarked
+- **No refined sugar** — dates, raw honey, and maple syrup instead
+- **Fuel, not filler** — nuts, seeds, cacao, coconut — real food your body knows what to do with
 
 ## License
 
