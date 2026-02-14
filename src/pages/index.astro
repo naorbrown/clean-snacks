@@ -12,23 +12,23 @@ const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<PageLayout title="Clean Snacks" description="Simple, real-food snack recipes for every occasion — replace packaged junk with snacks you make yourself.">
+<PageLayout title="Clean Snacks" description="Simple, real-food snack alternatives you can make at home — for every occasion and every age.">
   <!-- Hero -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-sage/8 via-dark-bg to-honey/5"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-honey/8 via-dark-bg to-honey/5"></div>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
       <div class="max-w-3xl mx-auto text-center">
         <div class="flex justify-center mb-6">
-          <BrandIllustration variant="bowl" class="w-16 h-16 text-sage-light/60" />
+          <BrandIllustration variant="bowl" class="w-16 h-16 text-honey-light/60" />
         </div>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark-text leading-[1.15]">
-          Replace junk food with <span class="text-sage-light">simple, real-food</span> snacks
+          Make simple, real-food <span class="text-honey-light">snack alternatives</span> at home
         </h1>
         <p class="text-lg sm:text-xl text-dark-text/70 mt-5 max-w-2xl mx-auto leading-relaxed">
-          DIY recipes using whole ingredients — for movie night, the gym, work breaks, and everything in between.
+          Whole-ingredient recipes for movie night, the gym, work breaks, and everything in between.
         </p>
         <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
-          <a href={url('/recipes/')} class="inline-flex items-center px-6 py-3 bg-sage text-white rounded-xl font-medium text-sm no-underline hover:bg-sage-dark shadow-sm hover:shadow-md transition-all">
+          <a href={url('/recipes/')} class="inline-flex items-center px-6 py-3 bg-honeytext-white rounded-xl font-medium text-sm no-underline hover:bg-honey-dark shadow-sm hover:shadow-md transition-all">
             Browse Recipes
           </a>
           <a href={url('/categories/')} class="inline-flex items-center px-6 py-3 bg-dark-surface text-dark-text rounded-xl font-medium text-sm no-underline shadow-[var(--shadow-card)] hover:bg-dark-elevated transition-all">
@@ -44,8 +44,8 @@ const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6
     <h2 class="text-2xl sm:text-3xl font-bold text-dark-text text-center mb-10">How it works</h2>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
       <div class="text-center">
-        <div class="w-14 h-14 mx-auto rounded-2xl bg-sage/10 flex items-center justify-center mb-4">
-          <BrandIllustration variant="leaf" class="w-8 h-8 text-sage-light" />
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-honey/10 flex items-center justify-center mb-4">
+          <BrandIllustration variant="whisk" class="w-8 h-8 text-honey-light" />
         </div>
         <h3 class="font-medium text-dark-text mb-1">Pick an occasion</h3>
         <p class="text-sm text-dark-text/60">Movie night? Gym? Road trip? Browse by when you snack.</p>
@@ -101,21 +101,21 @@ const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6
       </div>
     </div>
     <p class="text-center mt-6">
-      <a href={url('/about/')} class="text-sm text-sage-light no-underline hover:text-sage transition-colors">Read more about our philosophy &rarr;</a>
+      <a href={url('/about/')} class="text-sm text-honey-light no-underline hover:text-honeytransition-colors">Read more about our philosophy &rarr;</a>
     </p>
   </section>
 
   <!-- Browse by Category -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
     <h2 class="text-2xl sm:text-3xl font-bold text-dark-text text-center mb-10">Browse by Occasion</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
       {categories.map((cat) => (
         <a
           href={url(`/categories/${cat.slug}/`)}
           class="group flex flex-col items-center text-center p-5 sm:p-6 rounded-xl bg-dark-surface hover:bg-dark-elevated shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all no-underline"
         >
           <span class="text-3xl mb-3">{cat.icon}</span>
-          <h3 class="text-sm sm:text-base font-medium text-dark-text group-hover:text-sage-light transition-colors">{cat.name}</h3>
+          <h3 class="text-sm sm:text-base font-medium text-dark-text group-hover:text-honey-light transition-colors">{cat.name}</h3>
           <p class="text-xs text-dark-text/50 mt-1 line-clamp-2 hidden sm:block">{cat.description}</p>
         </a>
       ))}
@@ -127,7 +127,7 @@ const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6
     <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
       <div class="flex items-center justify-between mb-6">
         <h2 class="text-2xl sm:text-3xl font-bold text-dark-text">Popular Recipes</h2>
-        <a href={url('/recipes/')} class="text-sm font-medium text-sage-light no-underline hover:text-sage transition-colors">View all &rarr;</a>
+        <a href={url('/recipes/')} class="text-sm font-medium text-honey-light no-underline hover:text-honeytransition-colors">View all &rarr;</a>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {displayRecipes.map((recipe) => (

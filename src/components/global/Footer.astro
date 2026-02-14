@@ -21,9 +21,9 @@ const categories = getCategories();
       <div>
         <p class="text-xs font-semibold uppercase tracking-wider text-bark-light/40 dark:text-dark-text/30 mb-3">Explore</p>
         <ul class="space-y-2">
-          <li><a href={url('/recipes/')} class="text-sm text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-sage-dark dark:hover:text-sage-light transition-colors">All Recipes</a></li>
-          <li><a href={url('/categories/')} class="text-sm text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-sage-dark dark:hover:text-sage-light transition-colors">Categories</a></li>
-          <li><a href={url('/about/')} class="text-sm text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-sage-dark dark:hover:text-sage-light transition-colors">About</a></li>
+          <li><a href={url('/recipes/')} class="text-sm text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-honey-dark dark:hover:text-honey-light transition-colors">All Recipes</a></li>
+          <li><a href={url('/categories/')} class="text-sm text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-honey-dark dark:hover:text-honey-light transition-colors">Categories</a></li>
+          <li><a href={url('/about/')} class="text-sm text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-honey-dark dark:hover:text-honey-light transition-colors">About</a></li>
         </ul>
       </div>
 
@@ -33,7 +33,7 @@ const categories = getCategories();
         <ul class="space-y-2">
           {categories.slice(0, 8).map((cat) => (
             <li>
-              <a href={url(`/categories/${cat.slug}/`)} class="text-sm text-dark-text/60 no-underline hover:text-sage-light transition-colors">
+              <a href={url(`/categories/${cat.slug}/`)} class="text-sm text-dark-text/60 no-underline hover:text-honey-light transition-colors">
                 {cat.icon} {cat.name}
               </a>
             </li>
@@ -45,10 +45,10 @@ const categories = getCategories();
       <div>
         <p class="text-xs font-semibold uppercase tracking-wider text-dark-text/30 mb-3">Got a suggestion?</p>
         <form action="https://formspree.io/f/PLACEHOLDER_FORM_ID" method="POST" class="space-y-3">
-          <input type="text" name="suggestion" placeholder="A recipe idea, feedback..." required class="w-full px-3 py-2 text-sm rounded-lg bg-dark-bg/60 border border-dark-surface text-dark-text placeholder:text-dark-text/30 focus:outline-none focus:border-sage/50 focus:ring-1 focus:ring-sage/30 transition-colors" />
-          <input type="email" name="email" placeholder="Email (optional)" class="w-full px-3 py-2 text-sm rounded-lg bg-dark-bg/60 border border-dark-surface text-dark-text placeholder:text-dark-text/30 focus:outline-none focus:border-sage/50 focus:ring-1 focus:ring-sage/30 transition-colors" />
+          <input type="text" name="suggestion" placeholder="A recipe idea, feedback..." required class="w-full px-3 py-2 text-sm rounded-lg bg-dark-bg/60 border border-dark-surface text-dark-text placeholder:text-dark-text/30 focus:outline-none focus:border-honey/50 focus:ring-1 focus:ring-honey/30 transition-colors" />
+          <input type="email" name="email" placeholder="Email (optional)" class="w-full px-3 py-2 text-sm rounded-lg bg-dark-bg/60 border border-dark-surface text-dark-text placeholder:text-dark-text/30 focus:outline-none focus:border-honey/50 focus:ring-1 focus:ring-honey/30 transition-colors" />
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-          <button type="submit" class="w-full px-4 py-2 text-sm font-medium rounded-lg bg-sage/20 text-sage-light hover:bg-sage/30 transition-colors">
+          <button type="submit" class="w-full px-4 py-2 text-sm font-medium rounded-lg bg-honey/20 text-honey-light hover:bg-honey/30 transition-colors">
             Send suggestion
           </button>
         </form>

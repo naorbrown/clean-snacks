@@ -2,21 +2,16 @@ import { describe, it, expect } from 'vitest';
 import { z } from 'astro/zod';
 
 const categoryEnum = z.enum([
-  'movie-night',
-  'gym-training',
-  'work-study',
-  'road-trip',
-  'game-day',
+  'chill-social',
+  'active-fuel',
+  'on-the-go',
   'morning-daily',
-  'late-night',
-  'baby-toddler',
-  'kids',
+  'kids-family',
   'teens',
-  'mens-fuel',
-  'womens-wellness',
-  'elderly-gentle',
+  'gentle-nourishing',
   'candy-sweets',
   'drinks-smoothies',
+  'baked-treats',
 ]);
 
 const recipeSchema = z.object({
@@ -48,7 +43,7 @@ describe('Recipe Schema', () => {
   const validRecipe = {
     title: 'Air-Popped Popcorn with Nutritional Yeast',
     description: 'A crispy, savory popcorn topped with nutritional yeast and sea salt',
-    category: 'movie-night',
+    category: 'chill-social',
     difficulty: 'beginner',
     prepTime: 'PT5M',
     totalTime: 'PT10M',
@@ -61,7 +56,7 @@ describe('Recipe Schema', () => {
       { name: 'Nutritional yeast', amount: '2 tbsp' },
       { name: 'Sea salt', amount: '1/2 tsp' },
     ],
-    tags: ['beginner-friendly', 'movie-night'],
+    tags: ['beginner-friendly', 'chill-social'],
     relatedRecipes: [],
     featured: true,
     draft: false,
@@ -109,7 +104,7 @@ describe('Recipe Schema', () => {
     const minimal = {
       title: 'Test Recipe',
       description: 'A test recipe',
-      category: 'movie-night',
+      category: 'chill-social',
       difficulty: 'beginner',
       prepTime: 'PT5M',
       totalTime: 'PT10M',
@@ -121,11 +116,10 @@ describe('Recipe Schema', () => {
     expect(result.success).toBe(true);
   });
 
-  it('validates all 15 categories', () => {
+  it('validates all 10 categories', () => {
     const cats = [
-      'movie-night', 'gym-training', 'work-study', 'road-trip', 'game-day',
-      'morning-daily', 'late-night', 'baby-toddler', 'kids', 'teens',
-      'mens-fuel', 'womens-wellness', 'elderly-gentle', 'candy-sweets', 'drinks-smoothies',
+      'chill-social', 'active-fuel', 'on-the-go', 'morning-daily', 'kids-family',
+      'teens', 'gentle-nourishing', 'candy-sweets', 'drinks-smoothies', 'baked-treats',
     ];
     for (const cat of cats) {
       const result = recipeSchema.safeParse({ ...validRecipe, category: cat });

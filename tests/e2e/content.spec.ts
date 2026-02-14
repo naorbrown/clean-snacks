@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Content', () => {
   test('home page has hero section', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('h1')).toContainText('Replace junk food');
+    await expect(page.locator('h1')).toContainText('Make simple');
   });
 
   test('home page has principles section', async ({ page }) => {
@@ -21,13 +21,13 @@ test.describe('Content', () => {
   test('home page shows category cards', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByText('Browse by Occasion')).toBeVisible();
-    await expect(page.getByText('Movie Night')).toBeVisible();
-    await expect(page.getByText('Gym & Training')).toBeVisible();
+    await expect(page.getByText('Chill & Social')).toBeVisible();
+    await expect(page.getByText('Active Fuel')).toBeVisible();
   });
 
   test('categories page lists all categories', async ({ page }) => {
     await page.goto('/categories/');
-    await expect(page.getByText('Movie Night')).toBeVisible();
+    await expect(page.getByText('Chill & Social')).toBeVisible();
     await expect(page.getByText('Candy & Sweets')).toBeVisible();
     await expect(page.getByText('Drinks & Smoothies')).toBeVisible();
   });

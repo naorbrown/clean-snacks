@@ -44,21 +44,16 @@ describe('formatDuration', () => {
 
 describe('categoryLabel', () => {
   const categories: Record<string, { name: string }> = {
-    'movie-night': { name: 'Movie Night' },
-    'gym-training': { name: 'Gym & Training' },
-    'work-study': { name: 'Work & Study' },
-    'road-trip': { name: 'Road Trip & Commute' },
-    'game-day': { name: 'Game Day & Social' },
+    'chill-social': { name: 'Chill & Social' },
+    'active-fuel': { name: 'Active Fuel' },
+    'on-the-go': { name: 'On the Go' },
     'morning-daily': { name: 'Morning & Daily' },
-    'late-night': { name: 'Late Night' },
-    'baby-toddler': { name: 'Baby & Toddler' },
-    'kids': { name: 'Kids (5-12)' },
+    'kids-family': { name: 'Kids & Family' },
     'teens': { name: 'Teens' },
-    'mens-fuel': { name: "Men's Fuel" },
-    'womens-wellness': { name: "Women's Wellness" },
-    'elderly-gentle': { name: 'Elderly & Gentle' },
+    'gentle-nourishing': { name: 'Gentle & Nourishing' },
     'candy-sweets': { name: 'Candy & Sweets' },
     'drinks-smoothies': { name: 'Drinks & Smoothies' },
+    'baked-treats': { name: 'Baked Treats' },
   };
 
   function categoryLabel(slug: string): string {
@@ -66,8 +61,8 @@ describe('categoryLabel', () => {
   }
 
   it('returns the correct name for known categories', () => {
-    expect(categoryLabel('movie-night')).toBe('Movie Night');
-    expect(categoryLabel('gym-training')).toBe('Gym & Training');
+    expect(categoryLabel('chill-social')).toBe('Chill & Social');
+    expect(categoryLabel('active-fuel')).toBe('Active Fuel');
     expect(categoryLabel('candy-sweets')).toBe('Candy & Sweets');
   });
 
@@ -78,8 +73,8 @@ describe('categoryLabel', () => {
 
 describe('getCategoryIcon', () => {
   const categories: Record<string, { icon: string }> = {
-    'movie-night': { icon: '🍿' },
-    'gym-training': { icon: '💪' },
+    'chill-social': { icon: '🍿' },
+    'active-fuel': { icon: '💪' },
     'candy-sweets': { icon: '🍬' },
     'drinks-smoothies': { icon: '🥤' },
   };
@@ -89,7 +84,7 @@ describe('getCategoryIcon', () => {
   }
 
   it('returns correct icon for known categories', () => {
-    expect(getCategoryIcon('movie-night')).toBe('🍿');
+    expect(getCategoryIcon('chill-social')).toBe('🍿');
     expect(getCategoryIcon('candy-sweets')).toBe('🍬');
   });
 
@@ -122,9 +117,9 @@ describe('capitalize', () => {
 
 describe('getCategories', () => {
   const categories: Record<string, { name: string; description: string; icon: string; order: number }> = {
-    'movie-night': { name: 'Movie Night', description: 'test', icon: '🍿', order: 1 },
-    'gym-training': { name: 'Gym & Training', description: 'test', icon: '💪', order: 2 },
-    'candy-sweets': { name: 'Candy & Sweets', description: 'test', icon: '🍬', order: 14 },
+    'chill-social': { name: 'Chill & Social', description: 'test', icon: '🍿', order: 1 },
+    'active-fuel': { name: 'Active Fuel', description: 'test', icon: '💪', order: 2 },
+    'candy-sweets': { name: 'Candy & Sweets', description: 'test', icon: '🍬', order: 8 },
   };
 
   function getCategories() {
@@ -135,8 +130,8 @@ describe('getCategories', () => {
 
   it('returns categories sorted by order', () => {
     const result = getCategories();
-    expect(result[0].slug).toBe('movie-night');
-    expect(result[1].slug).toBe('gym-training');
+    expect(result[0].slug).toBe('chill-social');
+    expect(result[1].slug).toBe('active-fuel');
     expect(result[2].slug).toBe('candy-sweets');
   });
 

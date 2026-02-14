@@ -4,9 +4,8 @@ import { join } from 'path';
 
 const CONTENT_DIR = join(process.cwd(), 'src/content/recipes');
 const VALID_CATEGORIES = [
-  'movie-night', 'gym-training', 'work-study', 'road-trip', 'game-day',
-  'morning-daily', 'late-night', 'baby-toddler', 'kids', 'teens',
-  'mens-fuel', 'womens-wellness', 'elderly-gentle', 'candy-sweets', 'drinks-smoothies',
+  'chill-social', 'active-fuel', 'on-the-go', 'morning-daily', 'kids-family',
+  'teens', 'gentle-nourishing', 'candy-sweets', 'drinks-smoothies',
   'baked-treats',
 ];
 

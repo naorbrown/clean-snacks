@@ -32,8 +32,8 @@ test.describe('Navigation', () => {
   });
 
   test('category page loads', async ({ page }) => {
-    await page.goto('/categories/movie-night/');
-    await expect(page.locator('h1')).toContainText('Movie Night');
+    await page.goto('/categories/chill-social/');
+    await expect(page.locator('h1')).toContainText('Chill & Social');
   });
 
   test('logo links to home', async ({ page }) => {

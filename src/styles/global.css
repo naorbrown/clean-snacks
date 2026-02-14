@@ -6,9 +6,7 @@
   --color-cream-dark: #2C2927;
   --color-bark: #F5F0EB;
   --color-bark-light: #D4CCC4;
-  --color-sage: #7FA383;
-  --color-sage-dark: #8DB891;
-  --color-sage-light: #B8D4BA;
+
   --color-terracotta: #D49580;
   --color-terracotta-light: #E8A88E;
   --color-honey: #D4A847;
@@ -42,13 +40,13 @@
   }
 
   a {
-    color: var(--color-sage-light);
+    color: var(--color-honey-light);
     text-decoration: underline;
-    text-decoration-color: var(--color-sage);
+    text-decoration-color: var(--color-honey);
     text-underline-offset: 2px;
   }
   a:hover {
-    color: var(--color-sage);
+    color: var(--color-honey);
   }
 
   /* Prose readability improvements */
@@ -78,7 +76,7 @@
 /* Pagefind overrides */
 :root {
   --pagefind-ui-scale: 1;
-  --pagefind-ui-primary: var(--color-sage-light);
+  --pagefind-ui-primary: var(--color-honey-light);
   --pagefind-ui-text: var(--color-dark-text);
   --pagefind-ui-background: var(--color-dark-surface);
   --pagefind-ui-border: var(--color-dark-surface);
@@ -121,7 +119,7 @@ dialog.mobile-menu::backdrop {
   height: 1.75rem;
   border-radius: 50%;
   background: var(--color-dark-elevated);
-  color: var(--color-sage-light);
+  color: var(--color-honey-light);
   font-size: 0.8rem;
   font-weight: 600;
   display: flex;
