@@ -7,6 +7,7 @@ const VALID_CATEGORIES = [
   'movie-night', 'gym-training', 'work-study', 'road-trip', 'game-day',
   'morning-daily', 'late-night', 'baby-toddler', 'kids', 'teens',
   'mens-fuel', 'womens-wellness', 'elderly-gentle', 'candy-sweets', 'drinks-smoothies',
+  'baked-treats',
 ];
 
 function getRecipeFiles(): { path: string; dir: string; file: string }[] {

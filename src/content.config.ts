@@ -18,6 +18,7 @@ const categoryEnum = z.enum([
   'elderly-gentle',
   'candy-sweets',
   'drinks-smoothies',
+  'baked-treats',
 ]);
 
 const recipes = defineCollection({

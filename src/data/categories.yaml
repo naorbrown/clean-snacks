@@ -87,3 +87,9 @@ drinks-smoothies:
   description: "Clean sodas, electrolytes, lattes, smoothies, and hydration drinks"
   icon: "🥤"
   order: 15
+
+baked-treats:
+  name: "Baked Treats"
+  description: "Cookies, brownies, pastries, donuts, and fried dough — bakery favorites made clean"
+  icon: "🍪"
+  order: 16

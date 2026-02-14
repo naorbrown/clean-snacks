@@ -108,7 +108,7 @@ const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6
   <!-- Browse by Category -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
     <h2 class="text-2xl sm:text-3xl font-bold text-dark-text text-center mb-10">Browse by Occasion</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
       {categories.map((cat) => (
         <a
           href={url(`/categories/${cat.slug}/`)}

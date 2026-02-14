@@ -43,6 +43,7 @@ const categories: Record<string, { name: string; description: string; icon: stri
   'elderly-gentle':    { name: 'Elderly & Gentle',     description: 'Soft, nutrient-dense, easy-to-prepare snacks',                                     icon: '🤍', order: 13 },
   'candy-sweets':      { name: 'Candy & Sweets',       description: 'Homemade gummies, chocolate, fruit leather, and treats without refined sugar',      icon: '🍬', order: 14 },
   'drinks-smoothies':  { name: 'Drinks & Smoothies',   description: 'Clean sodas, electrolytes, lattes, smoothies, and hydration drinks',                icon: '🥤', order: 15 },
+  'baked-treats':      { name: 'Baked Treats',          description: 'Cookies, brownies, pastries, donuts, and fried dough — bakery favorites made clean', icon: '🍪', order: 16 },
 };
 
 /**
