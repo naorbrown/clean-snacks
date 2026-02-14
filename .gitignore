@@ -1,0 +1,32 @@
+# build output
+dist/
+
+# dependencies
+node_modules/
+
+# environment
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# astro
+.astro/
+
+# playwright
+test-results/
+playwright-report/
+
+# pagefind
+public/pagefind/
+
+# debug
+*.log

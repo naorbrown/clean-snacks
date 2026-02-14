@@ -1,0 +1,53 @@
+---
+import { url } from '../../lib/utils';
+---
+
+<header class="sticky top-0 z-40 bg-cream/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-cream-dark/60 dark:border-dark-surface/60">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-14 sm:h-16">
+      <!-- Left: hamburger (mobile) + logo -->
+      <div class="flex items-center gap-3">
+        <button id="mobile-menu-open" type="button" class="p-2 -ml-2 rounded-lg text-bark-light/70 dark:text-dark-text/60 hover:text-bark dark:hover:text-dark-text hover:bg-cream-dark/60 dark:hover:bg-dark-surface/60 transition-colors md:hidden" aria-label="Open menu">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+        <a href={url('/')} class="flex items-center gap-2.5 no-underline group">
+          <img src={url('/logo.svg')} alt="Clean Snacks" class="w-8 h-8" width="32" height="32" />
+          <span class="text-lg font-medium text-bark dark:text-dark-text group-hover:text-sage-dark dark:group-hover:text-sage-light transition-colors hidden sm:inline">
+            Clean Snacks
+          </span>
+        </a>
+      </div>
+
+      <!-- Center: desktop nav -->
+      <nav class="hidden md:flex items-center gap-1" aria-label="Main navigation">
+        <a href={url('/recipes/')} class="px-3 py-1.5 rounded-lg text-sm font-medium text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-bark dark:hover:text-dark-text hover:bg-cream-dark/50 dark:hover:bg-dark-surface/50 transition-all">Recipes</a>
+        <a href={url('/categories/')} class="px-3 py-1.5 rounded-lg text-sm font-medium text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-bark dark:hover:text-dark-text hover:bg-cream-dark/50 dark:hover:bg-dark-surface/50 transition-all">Categories</a>
+        <a href={url('/about/')} class="px-3 py-1.5 rounded-lg text-sm font-medium text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-bark dark:hover:text-dark-text hover:bg-cream-dark/50 dark:hover:bg-dark-surface/50 transition-all">About</a>
+      </nav>
+
+      <!-- Right: search trigger -->
+      <div class="flex items-center gap-1">
+        <button id="search-open" type="button" class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-bark-light/50 dark:text-dark-text/40 bg-cream-dark/40 dark:bg-dark-surface/40 border border-cream-dark/60 dark:border-dark-surface/60 hover:bg-cream-dark/70 dark:hover:bg-dark-surface/70 hover:text-bark-light/70 dark:hover:text-dark-text/60 transition-all cursor-pointer" aria-label="Search">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+          </svg>
+          <span class="text-xs">Search...</span>
+          <kbd class="hidden lg:inline text-[10px] px-1.5 py-0.5 rounded bg-cream-dark/60 dark:bg-dark-elevated/60 border border-cream-dark dark:border-dark-surface text-bark-light/40 dark:text-dark-text/30 font-sans">⌘K</kbd>
+        </button>
+        <button id="search-open-mobile" type="button" class="sm:hidden p-2 rounded-lg text-bark-light/70 dark:text-dark-text/60 hover:text-bark dark:hover:text-dark-text hover:bg-cream-dark/60 dark:hover:bg-dark-surface/60 transition-colors" aria-label="Search">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script type="module">
+  document.getElementById('search-open')?.addEventListener('click', () => { window.__openSearch?.(); });
+  document.getElementById('search-open-mobile')?.addEventListener('click', () => { window.__openSearch?.(); });
+  document.getElementById('mobile-menu-open')?.addEventListener('click', () => { window.__openMobileMenu?.(); });
+</script>

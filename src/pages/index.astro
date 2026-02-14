@@ -1,0 +1,144 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ContentCard from '../components/ui/ContentCard.astro';
+import BrandIllustration from '../components/ui/BrandIllustration.astro';
+import { getCategories, url } from '../lib/utils';
+import { getCollection } from 'astro:content';
+
+const categories = getCategories();
+const allRecipes = await getCollection('recipes', ({ data }) => !data.draft);
+const featuredRecipes = allRecipes.filter((r) => r.data.featured);
+const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6) : allRecipes.slice(0, 6))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<PageLayout title="Clean Snacks" description="Simple, real-food snack recipes for every occasion — replace packaged junk with snacks you make yourself.">
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-sage/8 via-dark-bg to-honey/5"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="flex justify-center mb-6">
+          <BrandIllustration variant="bowl" class="w-16 h-16 text-sage-light/60" />
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark-text leading-[1.15]">
+          Replace junk food with <span class="text-sage-light">simple, real-food</span> snacks
+        </h1>
+        <p class="text-lg sm:text-xl text-dark-text/70 mt-5 max-w-2xl mx-auto leading-relaxed">
+          DIY recipes using whole ingredients — for movie night, the gym, work breaks, and everything in between.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+          <a href={url('/recipes/')} class="inline-flex items-center px-6 py-3 bg-sage text-white rounded-xl font-medium text-sm no-underline hover:bg-sage-dark shadow-sm hover:shadow-md transition-all">
+            Browse Recipes
+          </a>
+          <a href={url('/categories/')} class="inline-flex items-center px-6 py-3 bg-dark-surface text-dark-text rounded-xl font-medium text-sm no-underline shadow-[var(--shadow-card)] hover:bg-dark-elevated transition-all">
+            Pick an Occasion
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-dark-text text-center mb-10">How it works</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+      <div class="text-center">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-sage/10 flex items-center justify-center mb-4">
+          <BrandIllustration variant="leaf" class="w-8 h-8 text-sage-light" />
+        </div>
+        <h3 class="font-medium text-dark-text mb-1">Pick an occasion</h3>
+        <p class="text-sm text-dark-text/60">Movie night? Gym? Road trip? Browse by when you snack.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-honey/10 flex items-center justify-center mb-4">
+          <BrandIllustration variant="bowl" class="w-8 h-8 text-honey" />
+        </div>
+        <h3 class="font-medium text-dark-text mb-1">Grab real ingredients</h3>
+        <p class="text-sm text-dark-text/60">Most recipes use 5 or fewer whole-food ingredients you already have.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-terracotta/10 flex items-center justify-center mb-4">
+          <BrandIllustration variant="spoon" class="w-8 h-8 text-terracotta-light" />
+        </div>
+        <h3 class="font-medium text-dark-text mb-1">Make it yourself</h3>
+        <p class="text-sm text-dark-text/60">Simple prep, no special equipment. Ready in minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Principles -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-12 sm:pb-16" id="principles">
+    <h2 class="text-2xl sm:text-3xl font-bold text-dark-text text-center mb-8">Our Principles</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="flex items-start gap-3 p-4 rounded-xl bg-dark-surface/50">
+        <span class="text-xl flex-shrink-0 mt-0.5">🔍</span>
+        <div>
+          <h3 class="text-sm font-semibold text-dark-text">Know every ingredient</h3>
+          <p class="text-xs text-dark-text/50 mt-0.5">If you can't pronounce it, it shouldn't be in your snack.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-4 rounded-xl bg-dark-surface/50">
+        <span class="text-xl flex-shrink-0 mt-0.5">✋</span>
+        <div>
+          <h3 class="text-sm font-semibold text-dark-text">5 ingredients or fewer</h3>
+          <p class="text-xs text-dark-text/50 mt-0.5">Simple beats complex. Every time.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-4 rounded-xl bg-dark-surface/50">
+        <span class="text-xl flex-shrink-0 mt-0.5">🍯</span>
+        <div>
+          <h3 class="text-sm font-semibold text-dark-text">No refined sugar</h3>
+          <p class="text-xs text-dark-text/50 mt-0.5">Dates, raw honey, and maple syrup do the job better.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-4 rounded-xl bg-dark-surface/50">
+        <span class="text-xl flex-shrink-0 mt-0.5">💪</span>
+        <div>
+          <h3 class="text-sm font-semibold text-dark-text">Fuel, not filler</h3>
+          <p class="text-xs text-dark-text/50 mt-0.5">Mineral-rich, nutrient-dense, real food.</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-6">
+      <a href={url('/about/')} class="text-sm text-sage-light no-underline hover:text-sage transition-colors">Read more about our philosophy &rarr;</a>
+    </p>
+  </section>
+
+  <!-- Browse by Category -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-dark-text text-center mb-10">Browse by Occasion</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      {categories.map((cat) => (
+        <a
+          href={url(`/categories/${cat.slug}/`)}
+          class="group flex flex-col items-center text-center p-5 sm:p-6 rounded-xl bg-dark-surface hover:bg-dark-elevated shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all no-underline"
+        >
+          <span class="text-3xl mb-3">{cat.icon}</span>
+          <h3 class="text-sm sm:text-base font-medium text-dark-text group-hover:text-sage-light transition-colors">{cat.name}</h3>
+          <p class="text-xs text-dark-text/50 mt-1 line-clamp-2 hidden sm:block">{cat.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Featured Recipes -->
+  {displayRecipes.length > 0 && (
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl sm:text-3xl font-bold text-dark-text">Popular Recipes</h2>
+        <a href={url('/recipes/')} class="text-sm font-medium text-sage-light no-underline hover:text-sage transition-colors">View all &rarr;</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {displayRecipes.map((recipe) => (
+          <ContentCard
+            href={url(`/recipes/${recipe.id}/`)}
+            title={recipe.data.title}
+            description={recipe.data.description}
+            category={recipe.data.category}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+</PageLayout>

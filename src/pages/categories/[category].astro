@@ -1,0 +1,52 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentCard from '../../components/ui/ContentCard.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import { getCategories, categoryLabel, getCategoryIcon, url } from '../../lib/utils';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const categories = getCategories();
+  return categories.map((cat) => ({
+    params: { category: cat.slug },
+    props: { category: cat },
+  }));
+}
+
+const { category } = Astro.props;
+const allRecipes = await getCollection('recipes', ({ data }) => !data.draft && data.category === category.slug);
+const sorted = allRecipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Categories', href: '/categories/' },
+  { label: category.name },
+];
+---
+
+<PageLayout title={`${category.name} — Clean Snacks`} description={category.description}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <Breadcrumb items={breadcrumbs} />
+
+    <div class="flex items-center gap-3 mt-4 mb-2">
+      <span class="text-3xl">{category.icon}</span>
+      <h1 class="text-3xl sm:text-4xl font-bold text-dark-text">{category.name}</h1>
+    </div>
+    <p class="text-dark-text/60 mb-10">{category.description}</p>
+
+    {sorted.length > 0 ? (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {sorted.map((recipe) => (
+          <ContentCard
+            href={url(`/recipes/${recipe.id}/`)}
+            title={recipe.data.title}
+            description={recipe.data.description}
+            category={recipe.data.category}
+          />
+        ))}
+      </div>
+    ) : (
+      <p class="text-dark-text/50 text-center py-12">Recipes coming soon.</p>
+    )}
+  </div>
+</PageLayout>

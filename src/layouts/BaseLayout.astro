@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Simple recipes for every occasion — replace packaged junk with snacks you make yourself.' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import { url } from '../lib/utils';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth" style={`--interFontUrl: url('${url('/fonts/inter-variable.woff2')}');`}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Clean Snacks" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={new URL(url('/og-image.png'), Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(url('/og-image.png'), Astro.site)} />
+
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="preload" href={url('/fonts/inter-variable.woff2')} as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href={url('/pagefind/pagefind-ui.css')} />
+    <script src={url('/pagefind/pagefind-ui.js')} is:inline></script>
+
+    <style is:global>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: var(--interFontUrl) format('woff2');
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col" style={`--interFontUrl: url('${url('/fonts/inter-variable.woff2')}');`}>
+    <slot />
+  </body>
+</html>

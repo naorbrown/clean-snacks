@@ -1,0 +1,34 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getCategories, url } from '../../lib/utils';
+import { getCollection } from 'astro:content';
+
+const categories = getCategories();
+const allRecipes = await getCollection('recipes', ({ data }) => !data.draft);
+
+const categoryCounts = categories.map((cat) => ({
+  ...cat,
+  count: allRecipes.filter((r) => r.data.category === cat.slug).length,
+}));
+---
+
+<PageLayout title="Categories — Clean Snacks" description="Browse clean snack recipes by occasion, age group, or type.">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <h1 class="text-3xl sm:text-4xl font-bold text-dark-text mb-4">Categories</h1>
+    <p class="text-dark-text/60 mb-10">Find the right snack for every moment.</p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      {categoryCounts.map((cat) => (
+        <a
+          href={url(`/categories/${cat.slug}/`)}
+          class="group flex flex-col items-center text-center p-5 sm:p-6 rounded-xl bg-dark-surface hover:bg-dark-elevated shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all no-underline"
+        >
+          <span class="text-3xl mb-3">{cat.icon}</span>
+          <h3 class="text-sm sm:text-base font-medium text-dark-text group-hover:text-sage-light transition-colors">{cat.name}</h3>
+          <p class="text-xs text-dark-text/50 mt-1 line-clamp-2 hidden sm:block">{cat.description}</p>
+          <span class="text-xs text-dark-text/30 mt-2">{cat.count} recipe{cat.count !== 1 ? 's' : ''}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</PageLayout>
