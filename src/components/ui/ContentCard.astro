@@ -1,0 +1,30 @@
+---
+import { url, getCategoryIcon, categoryLabel } from '../../lib/utils';
+
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  category: string;
+  type?: 'recipe';
+}
+
+const { href, title, description, category, type = 'recipe' } = Astro.props;
+---
+
+<a href={href} class="group block rounded-xl bg-dark-surface shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-200 no-underline">
+  <div class="p-4 sm:p-5">
+    <h3 class="text-base sm:text-lg font-medium text-dark-text line-clamp-2 group-hover:text-sage-light transition-colors">
+      {title}
+    </h3>
+    <p class="text-sm text-dark-text/60 mt-1.5 line-clamp-2">
+      {description}
+    </p>
+    <p class="text-xs text-dark-text/40 mt-3 flex items-center gap-1.5">
+      <span>{getCategoryIcon(category)}</span>
+      <span>{categoryLabel(category)}</span>
+      <span class="text-dark-text/20">&middot;</span>
+      <span class="uppercase tracking-wider">{type}</span>
+    </p>
+  </div>
+</a>

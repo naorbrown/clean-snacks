@@ -1,0 +1,60 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { url } from '../lib/utils';
+---
+
+<PageLayout title="About — Clean Snacks" description="Why we built Clean Snacks and the principles behind every recipe.">
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <h1 class="text-3xl sm:text-4xl font-bold text-dark-text mb-6">Why Clean Snacks?</h1>
+
+    <div class="prose prose-bark dark:prose-invert max-w-none">
+      <p>
+        The snack aisle is a masterclass in marketing. Bright packaging, bold health claims, and ingredient lists that read like chemistry experiments. Even the "healthy" alternatives — protein bars, veggie chips, organic fruit snacks — are still ultra-processed products with ingredients you'd never use at home.
+      </p>
+
+      <p>
+        We started Clean Snacks with a simple question: <strong>what if you just made it yourself?</strong>
+      </p>
+
+      <p>
+        Not gourmet cooking. Not meal prep. Just simple, real-food snacks that you can make in minutes with ingredients you recognize. The kind of food your great-grandparents would have eaten — before the snack industry existed.
+      </p>
+
+      <h2>Our Principles</h2>
+
+      <h3>Know Every Ingredient</h3>
+      <p>
+        Every recipe on this site uses ingredients you can find in any grocery store and identify on sight. No protein isolates, no maltodextrin, no "natural flavors." If it needs a lab to produce, it doesn't belong in your snack.
+      </p>
+
+      <h3>5 Ingredients or Fewer</h3>
+      <p>
+        Complexity is the enemy of consistency. The simpler a recipe is, the more likely you are to actually make it. Most of our recipes use 3-5 whole-food ingredients. Some use just one or two.
+      </p>
+
+      <h3>No Refined Sugar</h3>
+      <p>
+        We use whole-food sweeteners — Medjool dates, raw honey, pure maple syrup, ripe bananas. These bring minerals, fiber, and flavor that white sugar can't match. Your taste buds adjust faster than you think.
+      </p>
+
+      <h3>Mineral-Rich, Nutrient-Dense</h3>
+      <p>
+        Snacks should be fuel, not filler. We emphasize ingredients that are naturally high in minerals — nuts, seeds, sea salt, dark leafy greens, cacao, coconut. These are the building blocks your body actually needs.
+      </p>
+
+      <h3>For Every Age and Every Occasion</h3>
+      <p>
+        Whether you're packing a toddler's lunchbox, fueling a workout, or reaching for something during a movie — there's a clean version of whatever you're craving. We organize by occasion because that's how real snacking works.
+      </p>
+
+      <h2>What We're Not</h2>
+      <p>
+        We're not a diet program. We're not selling supplements. We don't count calories or macros. We believe that when you eat real food in its whole form, your body knows what to do with it. The goal isn't restriction — it's sovereignty. Knowing exactly what you're eating because you made it yourself.
+      </p>
+
+      <p>
+        <a href={url('/recipes/')}>Browse our recipes</a> and see how simple it can be.
+      </p>
+    </div>
+  </article>
+</PageLayout>

@@ -1,0 +1,20 @@
+@media print {
+  header, footer, nav, .search-overlay, .mobile-menu {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+
+  .prose {
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+}

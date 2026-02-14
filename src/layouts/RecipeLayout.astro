@@ -1,0 +1,136 @@
+---
+import PageLayout from './PageLayout.astro';
+import Breadcrumb from '../components/ui/Breadcrumb.astro';
+import CategoryIcon from '../components/ui/CategoryIcon.astro';
+import IngredientList from '../components/recipe/IngredientList.astro';
+import RelatedContent from '../components/ui/RelatedContent.astro';
+import { categoryLabel, formatDuration, url } from '../lib/utils';
+import { generateHowToSchema, generateBreadcrumbSchema } from '../lib/schema';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  recipe: {
+    id: string;
+    data: {
+      title: string;
+      description: string;
+      category: string;
+      difficulty: string;
+      prepTime: string;
+      totalTime: string;
+      yield: string;
+      servings?: number;
+      storageLife?: string;
+      ingredients: { name: string; amount: string; notes?: string }[];
+    };
+  };
+}
+
+const { recipe } = Astro.props;
+const { title, description, category, difficulty, prepTime, totalTime, yield: recipeYield, servings, storageLife, ingredients } = recipe.data;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: categoryLabel(category), href: `/categories/${category}/` },
+  { label: title },
+];
+
+const recipeUrl = new URL(url(`/recipes/${recipe.id}/`), Astro.site).toString();
+
+const howToSchema = generateHowToSchema({
+  title,
+  description,
+  prepTime,
+  totalTime,
+  yield: recipeYield,
+  ingredients,
+  steps: [],
+  url: recipeUrl,
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: new URL(url('/'), Astro.site).toString() },
+  { name: categoryLabel(category), url: new URL(url(`/categories/${category}/`), Astro.site).toString() },
+  { name: title, url: recipeUrl },
+]);
+
+const difficultyDots = difficulty === 'advanced' ? 3 : difficulty === 'intermediate' ? 2 : 1;
+
+const allRecipes = await getCollection('recipes', ({ data }) => !data.draft && data.category === category);
+const related = allRecipes
+  .filter((r) => r.id !== recipe.id)
+  .slice(0, 6)
+  .map((r) => ({
+    href: url(`/recipes/${r.id}/`),
+    title: r.data.title,
+    description: r.data.description,
+    category: r.data.category,
+  }));
+---
+
+<PageLayout title={title} description={description}>
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" data-pagefind-body>
+    <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <Breadcrumb items={breadcrumbs} />
+
+    <!-- Header -->
+    <div class="mt-4 mb-8">
+      <div class="flex items-center gap-2 mb-3">
+        <CategoryIcon slug={category} size="sm" class="text-sage-dark dark:text-sage-light" />
+        <a href={url(`/categories/${category}/`)} class="text-xs font-semibold uppercase tracking-wider text-sage-dark dark:text-sage-light no-underline hover:underline">
+          {categoryLabel(category)}
+        </a>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-bold text-bark dark:text-dark-text mb-2">
+        {title}
+      </h1>
+      <p class="text-bark-light/80 dark:text-dark-text/70 mb-4">{description}</p>
+
+      <div class="flex flex-wrap items-center gap-4 text-sm text-bark-light/60 dark:text-dark-text/50">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12,6 12,12 16,14" />
+          </svg>
+          {formatDuration(totalTime)}
+        </span>
+        <span class="flex items-center gap-1">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <span class={`w-2 h-2 rounded-full ${i < difficultyDots ? 'bg-bark-light/40 dark:bg-dark-text/40' : 'bg-bark-light/15 dark:bg-dark-text/15'}`} />
+          ))}
+          <span class="ml-1 capitalize">{difficulty}</span>
+        </span>
+        <span>Yields {recipeYield}</span>
+        {storageLife && <span>Keeps {storageLife}</span>}
+      </div>
+    </div>
+
+    <!-- Two-column layout on desktop -->
+    <div class="lg:grid lg:grid-cols-[1fr_280px] lg:gap-10">
+      <!-- Main content -->
+      <div class="min-w-0">
+        <!-- Ingredient list: inline on mobile -->
+        <div class="lg:hidden mb-8">
+          <IngredientList ingredients={ingredients} />
+        </div>
+
+        <div class="recipe-content prose prose-bark dark:prose-invert max-w-none">
+          <slot />
+        </div>
+      </div>
+
+      <!-- Sticky sidebar on desktop -->
+      <aside class="hidden lg:block">
+        <div class="sticky top-24">
+          <div class="rounded-xl bg-cream-dark/30 dark:bg-dark-surface/50 p-5">
+            <IngredientList ingredients={ingredients} />
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Related recipes -->
+    <RelatedContent items={related} title={`More ${categoryLabel(category)} recipes`} />
+  </article>
+</PageLayout>

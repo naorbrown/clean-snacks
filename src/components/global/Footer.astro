@@ -1,0 +1,65 @@
+---
+import { getCategories, url } from '../../lib/utils';
+const categories = getCategories();
+---
+
+<footer class="bg-cream-dark/50 dark:bg-dark-surface/50 border-t border-cream-dark dark:border-dark-surface mt-auto">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+      <!-- Brand -->
+      <div>
+        <a href={url('/')} class="flex items-center gap-2 text-lg font-medium text-bark dark:text-dark-text no-underline">
+          <img src={url('/logo.svg')} alt="" class="w-7 h-7" width="28" height="28" />
+          Clean Snacks
+        </a>
+        <p class="text-sm text-bark-light/60 dark:text-dark-text/50 mt-2 max-w-xs">
+          Simple, real-food snack recipes for every occasion. Made with whole ingredients you already have.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-bark-light/40 dark:text-dark-text/30 mb-3">Explore</p>
+        <ul class="space-y-2">
+          <li><a href={url('/recipes/')} class="text-sm text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-sage-dark dark:hover:text-sage-light transition-colors">All Recipes</a></li>
+          <li><a href={url('/categories/')} class="text-sm text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-sage-dark dark:hover:text-sage-light transition-colors">Categories</a></li>
+          <li><a href={url('/about/')} class="text-sm text-bark-light/70 dark:text-dark-text/60 no-underline hover:text-sage-dark dark:hover:text-sage-light transition-colors">About</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-dark-text/30 mb-3">Categories</p>
+        <ul class="space-y-2">
+          {categories.slice(0, 8).map((cat) => (
+            <li>
+              <a href={url(`/categories/${cat.slug}/`)} class="text-sm text-dark-text/60 no-underline hover:text-sage-light transition-colors">
+                {cat.icon} {cat.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Suggestions -->
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-dark-text/30 mb-3">Got a suggestion?</p>
+        <form action="https://formspree.io/f/PLACEHOLDER_FORM_ID" method="POST" class="space-y-3">
+          <input type="text" name="suggestion" placeholder="A recipe idea, feedback..." required class="w-full px-3 py-2 text-sm rounded-lg bg-dark-bg/60 border border-dark-surface text-dark-text placeholder:text-dark-text/30 focus:outline-none focus:border-sage/50 focus:ring-1 focus:ring-sage/30 transition-colors" />
+          <input type="email" name="email" placeholder="Email (optional)" class="w-full px-3 py-2 text-sm rounded-lg bg-dark-bg/60 border border-dark-surface text-dark-text placeholder:text-dark-text/30 focus:outline-none focus:border-sage/50 focus:ring-1 focus:ring-sage/30 transition-colors" />
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <button type="submit" class="w-full px-4 py-2 text-sm font-medium rounded-lg bg-sage/20 text-sage-light hover:bg-sage/30 transition-colors">
+            Send suggestion
+          </button>
+        </form>
+        <p class="text-[10px] text-dark-text/20 mt-2">We read every message. No spam, ever.</p>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-6 border-t border-cream-dark/60 dark:border-dark-surface/60 text-center">
+      <p class="text-xs text-bark-light/40 dark:text-dark-text/30">
+        &copy; 2026 Clean Snacks. Made with real ingredients.
+      </p>
+    </div>
+  </div>
+</footer>

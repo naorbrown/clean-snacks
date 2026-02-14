@@ -1,0 +1,29 @@
+---
+interface Ingredient {
+  name: string;
+  amount: string;
+  notes?: string;
+}
+
+interface Props {
+  ingredients: Ingredient[];
+}
+
+const { ingredients } = Astro.props;
+---
+
+<div>
+  <h3 class="text-sm font-semibold uppercase tracking-wider text-dark-text/50 mb-3">Ingredients</h3>
+  <ul class="space-y-2" style="list-style: none; padding: 0; counter-reset: none;">
+    {ingredients.map((ing) => (
+      <li class="flex items-start gap-2 text-sm" style="padding-left: 0;">
+        <span class="w-4 h-4 mt-0.5 rounded border border-dark-text/20 flex-shrink-0"></span>
+        <span>
+          <strong class="text-dark-text">{ing.amount}</strong>{' '}
+          <span class="text-dark-text/80">{ing.name}</span>
+          {ing.notes && <span class="text-dark-text/40 text-xs ml-1">({ing.notes})</span>}
+        </span>
+      </li>
+    ))}
+  </ul>
+</div>

@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  /* Dark-only palette: warm charcoal base with cream text */
+  --color-cream: #1F1C1A;
+  --color-cream-dark: #2C2927;
+  --color-bark: #F5F0EB;
+  --color-bark-light: #D4CCC4;
+  --color-sage: #7FA383;
+  --color-sage-dark: #8DB891;
+  --color-sage-light: #B8D4BA;
+  --color-terracotta: #D49580;
+  --color-terracotta-light: #E8A88E;
+  --color-honey: #D4A847;
+  --color-honey-light: #E8C96E;
+  --color-sky: #6BA3BE;
+  --color-sky-light: #A3D0E4;
+  --color-honey-dark: #B89530;
+
+  --color-dark-bg: #1F1C1A;
+  --color-dark-surface: #2C2927;
+  --color-dark-elevated: #3F3836;
+  --color-dark-text: #E8E3DE;
+
+  --font-sans: 'Inter', 'system-ui', sans-serif;
+
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.12), 0 1px 2px -1px rgb(0 0 0 / 0.08);
+  --shadow-card-hover: 0 8px 12px -3px rgb(0 0 0 / 0.15), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    color: var(--color-dark-text);
+    background-color: var(--color-dark-bg);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+  }
+
+  a {
+    color: var(--color-sage-light);
+    text-decoration: underline;
+    text-decoration-color: var(--color-sage);
+    text-underline-offset: 2px;
+  }
+  a:hover {
+    color: var(--color-sage);
+  }
+
+  /* Prose readability improvements */
+  .prose {
+    line-height: 1.8;
+    font-size: 1.0625rem;
+  }
+  .prose p {
+    margin-bottom: 1.25em;
+  }
+  .prose h2 {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+  }
+  .prose h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  .prose ul, .prose ol {
+    margin-bottom: 1.25em;
+  }
+  .prose li {
+    margin-bottom: 0.5em;
+  }
+}
+
+/* Pagefind overrides */
+:root {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: var(--color-sage-light);
+  --pagefind-ui-text: var(--color-dark-text);
+  --pagefind-ui-background: var(--color-dark-surface);
+  --pagefind-ui-border: var(--color-dark-surface);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-font: var(--font-sans);
+}
+
+/* Hide scrollbar on horizontal scroll containers */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Search overlay dialog */
+dialog.search-overlay::backdrop {
+  background: rgb(0 0 0 / 0.5);
+}
+
+/* Mobile menu dialog */
+dialog.mobile-menu::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+
+/* Styled step indicators for ordered lists in prose */
+.prose ol {
+  counter-reset: step-counter;
+  list-style: none;
+  padding-left: 0;
+}
+.prose ol > li {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: 2.5rem;
+}
+.prose ol > li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--color-dark-elevated);
+  color: var(--color-sage-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-dark-elevated), transparent);
+  margin: 2rem 0;
+}
