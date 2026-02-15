@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = '175+ snack recipes made from real food. Five ingredients or fewer, no refined sugar, ready in minutes.' } = Astro.props;
+const { title, description = 'Snack recipes made from real food. Short ingredient lists, no refined sugar, ready when you are.' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 import { url } from '../lib/utils';
 ---
