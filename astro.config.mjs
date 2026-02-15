@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://naorbrown.github.io',
-  base: '/the-clean-snacks',
+  base: '/clean-snacks',
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
