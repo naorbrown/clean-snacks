@@ -12,7 +12,7 @@ const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<PageLayout title="Clean Snacks" description="175+ whole-food snack recipes using 5 ingredients or fewer — for every occasion and every age.">
+<PageLayout title="Clean Snacks" description="175+ snack recipes made from real food. Five ingredients or fewer, no refined sugar, ready in minutes.">
   <!-- Hero -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-honey/8 via-dark-bg to-honey/5"></div>
@@ -25,7 +25,7 @@ const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6
           Skip the label. <span class="text-honey-light">Make the snack.</span>
         </h1>
         <p class="text-lg sm:text-xl text-dark-text/70 mt-5 max-w-2xl mx-auto leading-relaxed">
-          175+ recipes using 5 real ingredients or fewer — for movie night, the gym, school lunches, and every craving in between.
+          175+ recipes built from 5 real ingredients or fewer. No refined sugar, no seed oils — just whole food you can make in minutes.
         </p>
         <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
           <a href={url('/recipes/')} class="inline-flex items-center px-6 py-3 bg-honeytext-white rounded-xl font-medium text-sm no-underline hover:bg-honey-dark shadow-sm hover:shadow-md transition-all">
@@ -48,21 +48,21 @@ const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6
           <BrandIllustration variant="whisk" class="w-8 h-8 text-honey-light" />
         </div>
         <h3 class="font-medium text-dark-text mb-1">Pick your moment</h3>
-        <p class="text-sm text-dark-text/60">Movie night? Post-workout? Road trip? Find recipes for when you actually snack.</p>
+        <p class="text-sm text-dark-text/60">Movie night, post-workout, road trip — browse by occasion and find something that fits.</p>
       </div>
       <div class="text-center">
         <div class="w-14 h-14 mx-auto rounded-2xl bg-honey/10 flex items-center justify-center mb-4">
           <BrandIllustration variant="bowl" class="w-8 h-8 text-honey" />
         </div>
-        <h3 class="font-medium text-dark-text mb-1">Check the ingredients</h3>
-        <p class="text-sm text-dark-text/60">Five or fewer whole foods you recognize. No mystery powders. No seed oils.</p>
+        <h3 class="font-medium text-dark-text mb-1">Read the ingredients</h3>
+        <p class="text-sm text-dark-text/60">Every recipe tops out at five whole foods. You'll recognize all of them.</p>
       </div>
       <div class="text-center">
         <div class="w-14 h-14 mx-auto rounded-2xl bg-terracotta/10 flex items-center justify-center mb-4">
           <BrandIllustration variant="spoon" class="w-8 h-8 text-terracotta-light" />
         </div>
         <h3 class="font-medium text-dark-text mb-1">Make it in minutes</h3>
-        <p class="text-sm text-dark-text/60">Simple prep, basic tools. Most recipes take less time than a grocery run.</p>
+        <p class="text-sm text-dark-text/60">Basic tools, minimal prep. Most recipes are done before the oven would finish preheating.</p>
       </div>
     </div>
   </section>
@@ -75,28 +75,28 @@ const displayRecipes = (featuredRecipes.length >= 3 ? featuredRecipes.slice(0, 6
         <span class="text-xl flex-shrink-0 mt-0.5">🔍</span>
         <div>
           <h3 class="text-sm font-semibold text-dark-text">Every ingredient earns its place</h3>
-          <p class="text-xs text-dark-text/50 mt-0.5">If you can't find it at a grocery store, it doesn't belong in your snack.</p>
+          <p class="text-xs text-dark-text/50 mt-0.5">If you can't buy it at a regular grocery store, it has no place in your snack.</p>
         </div>
       </div>
       <div class="flex items-start gap-3 p-4 rounded-xl bg-dark-surface/50">
         <span class="text-xl flex-shrink-0 mt-0.5">✋</span>
         <div>
           <h3 class="text-sm font-semibold text-dark-text">Five ingredients or fewer</h3>
-          <p class="text-xs text-dark-text/50 mt-0.5">Simple recipes get made. Complicated ones get bookmarked and forgotten.</p>
+          <p class="text-xs text-dark-text/50 mt-0.5">Short ingredient lists get made. Long ones get bookmarked and forgotten.</p>
         </div>
       </div>
       <div class="flex items-start gap-3 p-4 rounded-xl bg-dark-surface/50">
         <span class="text-xl flex-shrink-0 mt-0.5">🍯</span>
         <div>
           <h3 class="text-sm font-semibold text-dark-text">No refined sugar. Ever.</h3>
-          <p class="text-xs text-dark-text/50 mt-0.5">Dates, raw honey, maple syrup. Sweetness with minerals, not empty calories.</p>
+          <p class="text-xs text-dark-text/50 mt-0.5">We use dates, raw honey, and maple syrup — sweetness that comes with minerals and fiber.</p>
         </div>
       </div>
       <div class="flex items-start gap-3 p-4 rounded-xl bg-dark-surface/50">
         <span class="text-xl flex-shrink-0 mt-0.5">💪</span>
         <div>
           <h3 class="text-sm font-semibold text-dark-text">Fuel, not filler</h3>
-          <p class="text-xs text-dark-text/50 mt-0.5">Nuts, seeds, cacao, coconut — real food that your body knows what to do with.</p>
+          <p class="text-xs text-dark-text/50 mt-0.5">Nuts, seeds, cacao, coconut. Ingredients that give you something back.</p>
         </div>
       </div>
     </div>

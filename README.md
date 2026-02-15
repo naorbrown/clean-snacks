@@ -2,7 +2,7 @@
 
 Skip the label. Make the snack. — 175+ whole-food snack recipes using 5 ingredients or fewer, organized by occasion.
 
-**Live site:** [naorbrown.github.io/the-clean-snacks](https://naorbrown.github.io/the-clean-snacks)
+**Live site:** [naorbrown.github.io/clean-snacks](https://naorbrown.github.io/clean-snacks)
 
 ## What is this?
 
