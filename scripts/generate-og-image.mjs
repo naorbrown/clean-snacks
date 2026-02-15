@@ -19,17 +19,10 @@ const svg = `<svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2
 
   <!-- Popcorn icon -->
   <g transform="translate(556, 80) scale(2.75)">
-    <!-- Popcorn box -->
-    <path d="M9 14l2 13h10l2-13" stroke="#E8C96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <!-- Stripe on box -->
-    <path d="M10 17h12" stroke="#E8C96E" stroke-width="1.5" stroke-linecap="round" opacity="0.3" fill="none"/>
-    <!-- Popped kernels -->
-    <circle cx="13" cy="10" r="2.5" stroke="#E8C96E" stroke-width="2" fill="none"/>
-    <circle cx="19" cy="10" r="2.5" stroke="#E8C96E" stroke-width="2" fill="none"/>
-    <circle cx="16" cy="7" r="2.5" stroke="#E8C96E" stroke-width="2" fill="none"/>
-    <circle cx="11" cy="7" r="1.75" stroke="#E8C96E" stroke-width="1.5" opacity="0.6" fill="none"/>
-    <circle cx="21" cy="7" r="1.75" stroke="#E8C96E" stroke-width="1.5" opacity="0.6" fill="none"/>
-    <circle cx="16" cy="4" r="1.5" stroke="#E8C96E" stroke-width="1.5" opacity="0.5" fill="none"/>
+    <path d="M9 15l2 13h10l2-13" stroke="#E8C96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="12" cy="11" r="3.5" stroke="#E8C96E" stroke-width="2" fill="none"/>
+    <circle cx="20" cy="11" r="3.5" stroke="#E8C96E" stroke-width="2" fill="none"/>
+    <circle cx="16" cy="6" r="3.5" stroke="#E8C96E" stroke-width="2" fill="none"/>
   </g>
 
   <!-- Tagline -->
@@ -42,7 +35,7 @@ const svg = `<svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2
 
   <!-- Description -->
   <text x="600" y="450" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#E8E3DE" opacity="0.6">
-    175+ whole-food recipes · 5 ingredients or fewer · No refined sugar
+    Whole-food recipes · Short ingredient lists · No refined sugar
   </text>
 
   <!-- Brand name -->

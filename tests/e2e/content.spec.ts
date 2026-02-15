@@ -11,7 +11,7 @@ test.describe('Content', () => {
 
   test('home page hero has subtitle', async ({ page }) => {
     await page.goto(`${BASE}/`);
-    await expect(page.getByText('175+ recipes built from 5 real ingredients or fewer')).toBeVisible();
+    await expect(page.getByText('Real ingredients. Short lists.')).toBeVisible();
   });
 
   test('home page has principles section', async ({ page }) => {
@@ -19,14 +19,14 @@ test.describe('Content', () => {
     const principles = page.locator('#principles');
     await expect(principles).toBeVisible();
     await expect(principles.getByText('Every ingredient earns its place')).toBeVisible();
-    await expect(principles.getByText('Five ingredients or fewer')).toBeVisible();
+    await expect(principles.getByText('Short ingredient lists')).toBeVisible();
     await expect(principles.getByText('No refined sugar. Ever.')).toBeVisible();
     await expect(principles.getByText('Fuel, not filler')).toBeVisible();
   });
 
   test('home page has how it works section', async ({ page }) => {
     await page.goto(`${BASE}/`);
-    await expect(page.getByText("Three steps. That's it.")).toBeVisible();
+    await expect(page.getByText('How it works')).toBeVisible();
     await expect(page.getByText('Pick your moment')).toBeVisible();
     await expect(page.getByText('Read the ingredients')).toBeVisible();
     await expect(page.getByText('Make it in minutes')).toBeVisible();
@@ -73,13 +73,13 @@ test.describe('Content', () => {
 
   test('footer has brand tagline', async ({ page }) => {
     await page.goto(`${BASE}/`);
-    await expect(page.locator('footer')).toContainText('Five ingredients or fewer');
+    await expect(page.locator('footer')).toContainText('Short ingredient lists');
   });
 
   test('home page has meta description', async ({ page }) => {
     await page.goto(`${BASE}/`);
     const metaDesc = page.locator('meta[name="description"]');
-    await expect(metaDesc).toHaveAttribute('content', /snack recipes/);
+    await expect(metaDesc).toHaveAttribute('content', /Snack recipes/);
   });
 
   test('home page has OG tags', async ({ page }) => {
