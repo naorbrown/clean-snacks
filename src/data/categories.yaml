@@ -57,3 +57,9 @@ baked-treats:
   description: "Cookies, brownies, pastries, donuts, and fried dough — bakery favorites made clean"
   icon: "🍪"
   order: 10
+
+cravings-classics:
+  name: "Cravings & Classics"
+  description: "Clean remakes of the world's most iconic snacks — from Doritos to Snickers"
+  icon: "🔥"
+  order: 11

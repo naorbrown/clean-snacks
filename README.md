@@ -1,6 +1,6 @@
 # Clean Snacks
 
-Skip the label. Make the snack. — 175+ whole-food snack recipes using 5 ingredients or fewer, organized by occasion.
+Skip the label. Make the snack. — Whole-food snack recipes using 5 ingredients or fewer, organized by occasion.
 
 **Live site:** [naorbrown.github.io/clean-snacks](https://naorbrown.github.io/clean-snacks)
 
@@ -8,14 +8,14 @@ Skip the label. Make the snack. — 175+ whole-food snack recipes using 5 ingred
 
 Clean Snacks is a recipe site organized by **when** you snack — movie night, gym, work, road trips, and more. Every recipe uses real, whole-food ingredients (typically 5 or fewer), with no refined sugar, no seed oils, and no artificial anything.
 
-### 10 Categories
+### Categories
 
 | Occasion-Based | Demographic | Type |
 |---|---|---|
 | Chill & Social | Kids & Family | Candy & Sweets |
 | Active Fuel | Teens | Drinks & Smoothies |
 | On the Go | Gentle & Nourishing | Baked Treats |
-| Morning & Daily | | |
+| Morning & Daily | Cravings & Classics | |
 
 ## Tech Stack
 

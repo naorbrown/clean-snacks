@@ -6,7 +6,7 @@ const CONTENT_DIR = join(process.cwd(), 'src/content/recipes');
 const VALID_CATEGORIES = [
   'chill-social', 'active-fuel', 'on-the-go', 'morning-daily', 'kids-family',
   'teens', 'gentle-nourishing', 'candy-sweets', 'drinks-smoothies',
-  'baked-treats',
+  'baked-treats', 'cravings-classics',
 ];
 
 function getRecipeFiles(): { path: string; dir: string; file: string }[] {

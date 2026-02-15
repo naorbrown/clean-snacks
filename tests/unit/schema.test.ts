@@ -12,6 +12,7 @@ const categoryEnum = z.enum([
   'candy-sweets',
   'drinks-smoothies',
   'baked-treats',
+  'cravings-classics',
 ]);
 
 const recipeSchema = z.object({
@@ -116,10 +117,11 @@ describe('Recipe Schema', () => {
     expect(result.success).toBe(true);
   });
 
-  it('validates all 10 categories', () => {
+  it('validates all 11 categories', () => {
     const cats = [
       'chill-social', 'active-fuel', 'on-the-go', 'morning-daily', 'kids-family',
       'teens', 'gentle-nourishing', 'candy-sweets', 'drinks-smoothies', 'baked-treats',
+      'cravings-classics',
     ];
     for (const cat of cats) {
       const result = recipeSchema.safeParse({ ...validRecipe, category: cat });

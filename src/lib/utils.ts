@@ -38,6 +38,7 @@ const categories: Record<string, { name: string; description: string; icon: stri
   'candy-sweets':       { name: 'Candy & Sweets',        description: 'Homemade gummies, chocolate, fruit leather, and treats without refined sugar',           icon: '🍬', order: 8 },
   'drinks-smoothies':   { name: 'Drinks & Smoothies',    description: 'Clean sodas, electrolytes, lattes, smoothies, and hydration drinks',                     icon: '🥤', order: 9 },
   'baked-treats':       { name: 'Baked Treats',           description: 'Cookies, brownies, pastries, donuts, and fried dough — bakery favorites made clean',    icon: '🍪', order: 10 },
+  'cravings-classics':  { name: 'Cravings & Classics',   description: "Clean remakes of the world's most iconic snacks — from Doritos to Snickers",             icon: '🔥', order: 11 },
 };
 
 /**
